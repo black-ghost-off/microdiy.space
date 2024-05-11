@@ -1,0 +1,9 @@
+[submodule "themes/hugo-simple"]
+	path = themes/hugo-simple
+	url = https://github.com/maolonglong/hugo-simple.git
+[submodule "themes/tailwind"]
+	path = themes/tailwind
+	url = https://github.com/tomowang/hugo-theme-tailwind.git
+[submodule "themes/anubis2"]
+	path = themes/anubis2
+	url = https://github.com/Junyi-99/hugo-theme-anubis2.git

@@ -1,0 +1,14 @@
+baseURL = "https://microdiy.space/"
+languageCode = "ua-ua"
+theme = "anubis2"
+title = "microdiy.space"
+
+[author]
+name = "black.ghost.off"
+
+[markup.goldmark.renderer]
+unsafe = true # Enable unsafe mode to have a better experience
+
+[markup.highlight]
+style = 'base16-snazzy' # Highlight.js style
+
