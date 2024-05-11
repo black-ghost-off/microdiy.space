@@ -10,10 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>My First Post - microdiy.space</title>
+<title>Grafana Ploter - microdiy.space</title>
 
-<meta name="description" content="# Introduction This is bold text, and this is emphasized text.
-Visit the Hugo website!">
+<meta name="description" content="# Вступ Візуалізація даних від різних пристроїв як, наприклад Arduino, ESP, STM завжди мало певні проблеми через не велику кількість Real-Time плотерів які можуть візуалізувати різні дані в різних в різні красиві графіки. З приходом Grafana в середовищі DiY точилось багато запитань, а як на цій самій графані візуалізувати дані?
+Почнім с того що з самого початку Grafana будувалась для аналітики та інтерактивної візуалізації(грошей, навантажень на сервері, кількість запитів, продажів тощо&hellip;), для Real-Time націленості не було з самого початку, та все змінилось в 2021, коли була додана підтримка візуалізації даних в реальному часі для IoT.">
 
 
 
@@ -266,7 +266,7 @@ Visit the Hugo website!">
 
 
 <li>
-    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/my-first-post/) title="telegram" rel="me">
+    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/grafana-ploter/) title="telegram" rel="me">
     <span class="inline-svg">
 
     
@@ -287,7 +287,7 @@ Visit the Hugo website!">
 </li>
 
 <li>
-    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/my-first-post/) title="github" rel="me">
+    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/grafana-ploter/) title="github" rel="me">
     <span class="inline-svg">
 
     
@@ -360,7 +360,7 @@ Visit the Hugo website!">
     <article class="post h-entry">
         <div class="post-header">
             <header>
-                <h1 class="p-name post-title">My First Post</h1>
+                <h1 class="p-name post-title">Grafana Ploter</h1>
                 
 
             </header>
@@ -371,12 +371,12 @@ Visit the Hugo website!">
 <div class="post-info noselect">
     
         <div class="post-date dt-published">
-            <time datetime="2024-05-10">2024-05-10</time>
+            <time datetime="2024-05-12">2024-05-12</time>
             
         </div>
     
 
-    <a class="post-hidden-url u-url" href="/posts/my-first-post/">/posts/my-first-post/</a>
+    <a class="post-hidden-url u-url" href="/posts/grafana-ploter/">/posts/grafana-ploter/</a>
     <a href="http://localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
 
 
@@ -403,7 +403,10 @@ Visit the Hugo website!">
     <summary>Table of Contents</summary>
     <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#вступ">Вступ</a></li>
+    <li><a href="#mqtt">MQTT</a></li>
+    <li><a href="#serial--websocket">Serial &lt;=&gt; WebSocket</a></li>
+    <li><a href="#висновок">Висновок</a></li>
   </ul>
 </nav></div>
   </details>
@@ -430,16 +433,59 @@ Visit the Hugo website!">
 </script>
 
         <div class="content e-content">
-            <h2 id="introduction" >
+            <p><img src="/images/avocado_monitoring11.png" alt="alt"></p>
+<h2 id="вступ" >
 <div>
-    <a href="#introduction">
+    <a href="#%d0%b2%d1%81%d1%82%d1%83%d0%bf">
         #
     </a>
-    Introduction
+    Вступ
 </div>
 </h2>
-<p>This is <strong>bold</strong> text, and this is <em>emphasized</em> text.</p>
-<p>Visit the <a href="https://gohugo.io">Hugo</a> website!</p>
+<p>Візуалізація даних від різних пристроїв як, наприклад Arduino, ESP, STM завжди мало певні проблеми через не велику кількість Real-Time плотерів які можуть візуалізувати різні дані в різних в різні красиві графіки. З приходом Grafana в середовищі DiY точилось багато запитань, а як на цій самій графані візуалізувати дані?</p>
+<p>Почнім с того що з самого початку Grafana будувалась для аналітики та інтерактивної візуалізації(грошей, навантажень на сервері, кількість запитів, продажів тощо&hellip;), для Real-Time націленості не було з самого початку, та все змінилось в 2021, коли була додана підтримка візуалізації даних в реальному часі для IoT. Сьогодні ми розглянемо кейси саме для IoT та для «безінтернетних речей».</p>
+<blockquote>
+<p>Grafana — це мультиплатформенний веб-додаток для аналітики та інтерактивної візуалізації з відкритим кодом. Він надає діаграми, графіки та сповіщення для Інтернету при підключенні до підтримуваних джерел даних.</p>
+</blockquote>
+<p><strong>Як піднімати сервер, встановлювати/налаштовувати софт, як написати прошивку під ваш пристрій я розглядати не буду!</strong></p>
+<h2 id="mqtt" >
+<div>
+    <a href="#mqtt">
+        #
+    </a>
+    MQTT
+</div>
+</h2>
+<p><img src="/images/mqtt-architecture.png" alt="alt"></p>
+<p>MQTT — спрощений мережевий протокол, що працює на TCP/IP. Використовується для обміну повідомленнями між пристроями за принципом видавець-підписник.</p>
+<p>Цей спосіб потребує для своєї реалізації доступ до інтернетів нашого пристрою(це може бути ESP32, raspberry pi, або якась нова Arduino UNO R4/arduino portenta h7), MQTT сервер(будь-який пристрій з linux/windows/MacOS, на який встановлено MQTT брокер), сама Grafana, influxDB(опціонально), telegraf(опціонально).</p>
+<p><img src="/images/blobid0_rCq5RJB.png" alt="alt"></p>
+<p>На малюнку зображено два кейси з використанням MQTT, але нащо? Річ у тому що ні Grafana, ні MQTT не вміють зберігати логи про те які дані бігали, між ними потрібно якась база даних якщо вам потрібно дивитися на дані через якийсь період часу. Базою даних може виступати абсолютно люба DB, проте Good Practice для графани є використання InluxDB та Telegraf(є куча статей на цю тему).</p>
+<p>У випадку коли в нас джерелом даних виступає MQTT ми знаємо про дані які прибігли в Grafana до моменту перезавантаження сторінки.</p>
+<h2 id="serial--websocket" >
+<div>
+    <a href="#serial--websocket">
+        #
+    </a>
+    Serial &lt;=&gt; WebSocket
+</div>
+</h2>
+<p>А як бути з НЕ інтернет девайсами? Припустімо що графану ми поставили собі на локальний комп’ютер, під’єднали плату Arduino, якось її там запрограмували та тепер їх потрібно пов’язати між собою.</p>
+<p>Для цього приходить на допомогу утиліта яку я написав <a href="https://github.com/black-ghost-off/WebSocket_Serial_Converter">WebSocket Serial Converter</a>.</p>
+<p><img src="/images/diagram.png" alt="alt"></p>
+<p>В цьому кейсі усякий комп’ютер виступає проміжною одиницею між графаною, та якимось девайсом, або, між іншим комп’ютером (бразузером) та нашим девайсом. Як в кейсі з MQTT, без InfluxDB, цей спосіб не вміє на довго зберігати інформацію про те яка інформація була згенерована нашим пристроєм.</p>
+<h2 id="висновок" >
+<div>
+    <a href="#%d0%b2%d0%b8%d1%81%d0%bd%d0%be%d0%b2%d0%be%d0%ba">
+        #
+    </a>
+    Висновок
+</div>
+</h2>
+<p>Grafana — це потужний інструмент для візуалізації даних, який може бути використаний як для IoT, так і для DIY, та інших пристроїв.</p>
+<p>Для пристроїв, які мають доступ до Інтернету, найкращий варіант це використання протоколу MQTT та бази даних InfluxDB, який дозволяє в реальному часі візуалізувати дані та забезпечує можливість аналізу старих подій.</p>
+<p>У випадках, коли пристрої не мають доступу до Інтернету, використання Serial &lt;=&gt; WebSocket надає можливість зв’язку між пристроєм та Grafana через локальний комп’ютер.</p>
+<p>Загалом, вибір між цими підходами залежить від конкретних умов проєкт, доступності Інтернету та вимог до аналізу та візуалізації даних. Grafana відкриває широкі можливості для розробників IoT-проектів та тих, хто працює з «безінтернетними речами».</p>
 
         </div>
 

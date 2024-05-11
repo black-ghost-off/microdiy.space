@@ -12,3 +12,21 @@ unsafe = true # Enable unsafe mode to have a better experience
 [markup.highlight]
 style = 'base16-snazzy' # Highlight.js style
 
+[deployment]
+[[deployment.targets]]
+# An arbitrary name for this target.
+name = "AWS"
+URL = "s3://microdiy-space?region=eu-central-1"
+
+[params]
+    instagramLink = "https://instagram.com/EXAMPLE"
+
+
+[module]
+    [[module.mounts]]
+    source = 'static'
+    target = 'static'
+
+    [[module.mounts]]
+    source = 'images'
+    target = 'static/images'
