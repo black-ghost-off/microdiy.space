@@ -6,10 +6,60 @@
     <description>microdiy.space (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ua-ua</language>
-    <lastBuildDate>Sun, 12 May 2024 00:20:25 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jun 2024 10:56:30 +0300</lastBuildDate>
     
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Робими з клона майже оригінал (stlinkv2)</title>
+      <link>/posts/stm32-stlink-clone/</link>
+      <pubDate>Wed, 26 Jun 2024 10:56:30 +0300</pubDate>
+      
+      <guid>/posts/stm32-stlink-clone/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Гарний інструмент коштує дорого&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;хейт-спічвступ&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#%d1%85%d0%b5%d0%b9%d1%82-%d1%81%d0%bf%d1%96%d1%87%d0%b2%d1%81%d1%82%d1%83%d0%bf&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Хейт спіч(вступ)
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;В випадку з оригінальними девкітами, дебагерами, програматорами це інколи дуже гарні гроші, прям дуже
+Тому в роки студенства я не міг собі дозволити оригінальний St Link V2 і тому довгий час возився з свистками з не зрозумілими клонами stm32f103**** в середині, що мені коштували не один нейрончик спалений в моїй голові.&lt;/p&gt;
+&lt;p&gt;Після десятка годин роботи з неякісними клонами я вирішив взяти себе в руки і купити оригінальний, красивий StLink V2
+&lt;img src=&#34;http://localhost:1313/images/stlinkv2Clone1.jpg&#34; alt=&#34;alt&#34;&gt;
+&lt;img src=&#34;http://localhost:1313/images/mb936_internal-front2.jpg&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;І все було б добре, якби це був оригінал&amp;hellip;
+Проблема виникла в дуже не приємний момент. Коли мені скидають бінарнік для прошивки плати, я підключаюсь STM32CubeProgrammer і ніби все добре, а плата не підключається, заходжу в STM32CubeIDE, прошиваю звідти прошивкою - Все ок, починаю дебажити - Все ок&amp;hellip; А програмер працювати не хоче(&lt;/p&gt;
+&lt;p&gt;Трохи почухав голову, згадав що міняв версію прошивки і після цьогоооо замість Serial Number, в мене буковка T появилась&amp;hellip; А потім я ще перепрошивав з ST-LinkV2 на J-Link (треба було для NRF терміново програматор, а нічого більше не було під рукою) і тоді нічого не працювало&amp;hellip; І тут мене почали кусати думки що походу це не оригінал&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Відкривши кришку я побачив доволі знайомий з студенства &amp;ldquo;geehy apm32f103cbt6&amp;rdquo;. Це не поганий клон stm32, він працює в програматорах, але це клон, клони рідко коли бувають краще, або хочаб такі як оригінал&amp;hellip; Тому я почав думати.&lt;/p&gt;
+&lt;p&gt;Мені треба &amp;ldquo;оригінальний&amp;rdquo; і робочий інструмент.&lt;/p&gt;
+&lt;h1 id=&#34;що-треба-робити&#34; &gt;
+&lt;div&gt;
+    &lt;a href=&#34;#%d1%89%d0%be-%d1%82%d1%80%d0%b5%d0%b1%d0%b0-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8&#34;&gt;
+        ##
+    &lt;/a&gt;
+    Що треба робити?
+&lt;/div&gt;
+&lt;/h1&gt;
+&lt;p&gt;Цей програматор працює з STM32 Utility(примітка, ті МК з якими я працюю не працюють ВЖЕ з цією апкою, вона актуальна під старі чіпи) тому зашити через неї в оригінальний STM32F103C8T6 якусь прошивку не складе великої проблеми.&lt;/p&gt;
+&lt;p&gt;Беремо Bluepill&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/stm32bluepill.jpg&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;І зашиваємо &lt;a href=&#34;https://github.com/open-plc-com/firmwares/blob/master/STM32F103C8T6/ST-Link/STLinkV2.J16.S4.bin&#34;&gt;&lt;em&gt;firmware&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Наступний етап самий противний, переставляємо замість &lt;em&gt;geehy&lt;/em&gt; stm32f103c8t6, по розпіновці вони абсолютно pin to pin.&lt;/p&gt;
+&lt;p&gt;Після вдалої трансплантації в вас повністью робочий StLink V2.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/stm32_cube_programmer.png&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Після цих маніпуляцій можна провести firmware upgrade і користуватися як вам потрібно як звичайним STLINK програматором.&lt;/p&gt;
+&lt;p&gt;Розпіновка SWD зберігається. JTAG не користуюсь, за нього не ручаюсь.
+&lt;img src=&#34;http://localhost:1313/images/stlinkv2pinout.jpg&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;В теорії китайські свистки з цим же камушком теж можна переробити під &amp;ldquo;оригінальний&amp;rdquo; програматор.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/stlinkv2Clone2.jpg&#34; alt=&#34;alt&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Grafana Ploter</title>

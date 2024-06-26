@@ -10,15 +10,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>Categories - microdiy.space</title>
+<title>Робими з клона майже оригінал (stlinkv2) - microdiy.space</title>
 
-<meta name="description" content="">
+<meta name="description" content="Гарний інструмент коштує дорого
+## Хейт спіч(вступ) В випадку з оригінальними девкітами, дебагерами, програматорами це інколи дуже гарні гроші, прям дуже Тому в роки студенства я не міг собі дозволити оригінальний St Link V2 і тому довгий час возився з свистками з не зрозумілими клонами stm32f103**** в середині, що мені коштували не один нейрончик спалений в моїй голові.
+Після десятка годин роботи з неякісними клонами я вирішив взяти себе в руки і купити оригінальний, красивий StLink V2 І все було б добре, якби це був оригінал&hellip; Проблема виникла в дуже не приємний момент.">
 
 
 
 
 
-<link rel="alternate" type="application/rss+xml" href="/categories/index.xml" title="microdiy.space" />
 <link rel="icon" type="image/x-icon" href='favicon.ico'>
 <link rel="apple-touch-icon-precomposed" href='favicon.ico' >
 
@@ -266,7 +267,7 @@
 
 
 <li>
-    <a href='https://t.me/microdiy_space'%!(EXTRA string=/categories/) title="telegram" rel="me">
+    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/stm32-stlink-clone/) title="telegram" rel="me">
     <span class="inline-svg">
 
     
@@ -287,7 +288,7 @@
 </li>
 
 <li>
-    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/categories/) title="github" rel="me">
+    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/stm32-stlink-clone/) title="github" rel="me">
     <span class="inline-svg">
 
     
@@ -355,15 +356,143 @@
         </header>
         <main id="main" tabindex="-1">
             
-    <div class="index-content">
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">Робими з клона майже оригінал (stlinkv2)</h1>
+                
+
+            </header>
+            
+
+
+
+<div class="post-info noselect">
+    
+        <div class="post-date dt-published">
+            <time datetime="2024-06-26">2024-06-26</time>
+            
+        </div>
+    
+
+    <a class="post-hidden-url u-url" href="/posts/stm32-stlink-clone/">/posts/stm32-stlink-clone/</a>
+    <a href="http://localhost:1313/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
+
+
+    <div class="post-taxonomies">
+        
+        
         
     </div>
+</div>
 
-    <h1>Categories</h1>
-    <ul class="terms">
+        </div>
         
-    </ul>
 
+  
+  
+
+
+
+
+  
+  
+
+
+
+<script>
+  var toc = document.querySelector(".toc");
+  if (toc) {
+    toc.addEventListener("click", function () {
+      if (event.target.tagName !== "A") {
+        event.preventDefault();
+        if (this.open) {
+          this.open = false;
+          this.classList.remove("expanded");
+        } else {
+          this.open = true;
+          this.classList.add("expanded");
+        }
+      }
+    });
+  }
+</script>
+
+        <div class="content e-content">
+            <blockquote>
+<p>Гарний інструмент коштує дорого</p>
+</blockquote>
+<h1 id="хейт-спічвступ" >
+<div>
+    <a href="#%d1%85%d0%b5%d0%b9%d1%82-%d1%81%d0%bf%d1%96%d1%87%d0%b2%d1%81%d1%82%d1%83%d0%bf">
+        ##
+    </a>
+    Хейт спіч(вступ)
+</div>
+</h1>
+<p>В випадку з оригінальними девкітами, дебагерами, програматорами це інколи дуже гарні гроші, прям дуже
+Тому в роки студенства я не міг собі дозволити оригінальний St Link V2 і тому довгий час возився з свистками з не зрозумілими клонами stm32f103**** в середині, що мені коштували не один нейрончик спалений в моїй голові.</p>
+<p>Після десятка годин роботи з неякісними клонами я вирішив взяти себе в руки і купити оригінальний, красивий StLink V2
+<img src="/images/stlinkv2Clone1.jpg" alt="alt">
+<img src="/images/mb936_internal-front2.jpg" alt="alt"></p>
+<p>І все було б добре, якби це був оригінал&hellip;
+Проблема виникла в дуже не приємний момент. Коли мені скидають бінарнік для прошивки плати, я підключаюсь STM32CubeProgrammer і ніби все добре, а плата не підключається, заходжу в STM32CubeIDE, прошиваю звідти прошивкою - Все ок, починаю дебажити - Все ок&hellip; А програмер працювати не хоче(</p>
+<p>Трохи почухав голову, згадав що міняв версію прошивки і після цьогоооо замість Serial Number, в мене буковка T появилась&hellip; А потім я ще перепрошивав з ST-LinkV2 на J-Link (треба було для NRF терміново програматор, а нічого більше не було під рукою) і тоді нічого не працювало&hellip; І тут мене почали кусати думки що походу це не оригінал&hellip;</p>
+<p>Відкривши кришку я побачив доволі знайомий з студенства &ldquo;geehy apm32f103cbt6&rdquo;. Це не поганий клон stm32, він працює в програматорах, але це клон, клони рідко коли бувають краще, або хочаб такі як оригінал&hellip; Тому я почав думати.</p>
+<p>Мені треба &ldquo;оригінальний&rdquo; і робочий інструмент.</p>
+<h1 id="що-треба-робити" >
+<div>
+    <a href="#%d1%89%d0%be-%d1%82%d1%80%d0%b5%d0%b1%d0%b0-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8">
+        ##
+    </a>
+    Що треба робити?
+</div>
+</h1>
+<p>Цей програматор працює з STM32 Utility(примітка, ті МК з якими я працюю не працюють ВЖЕ з цією апкою, вона актуальна під старі чіпи) тому зашити через неї в оригінальний STM32F103C8T6 якусь прошивку не складе великої проблеми.</p>
+<p>Беремо Bluepill</p>
+<p><img src="/images/stm32bluepill.jpg" alt="alt"></p>
+<p>І зашиваємо <a href="https://github.com/open-plc-com/firmwares/blob/master/STM32F103C8T6/ST-Link/STLinkV2.J16.S4.bin"><em>firmware</em></a></p>
+<p>Наступний етап самий противний, переставляємо замість <em>geehy</em> stm32f103c8t6, по розпіновці вони абсолютно pin to pin.</p>
+<p>Після вдалої трансплантації в вас повністью робочий StLink V2.</p>
+<p><img src="/images/stm32_cube_programmer.png" alt="alt"></p>
+<p>Після цих маніпуляцій можна провести firmware upgrade і користуватися як вам потрібно як звичайним STLINK програматором.</p>
+<p>Розпіновка SWD зберігається. JTAG не користуюсь, за нього не ручаюсь.
+<img src="/images/stlinkv2pinout.jpg" alt="alt"></p>
+<p>В теорії китайські свистки з цим же камушком теж можна переробити під &ldquo;оригінальний&rdquo; програматор.</p>
+<p><img src="/images/stlinkv2Clone2.jpg" alt="alt"></p>
+
+        </div>
+
+    </article>
+
+    
+    
+
+    
+        
+        
+    
+
+    
+
+    
+        
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
 
         </main>
         
