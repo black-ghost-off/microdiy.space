@@ -10,11 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>Робимо з клона майже оригінал (stlinkv2) - microdiy.space</title>
+<title>Debug Serial Port - microdiy.space</title>
 
-<meta name="description" content="Гарний інструмент коштує дорого
-## Хейт спіч (вступ) В випадку з оригінальними девкітами, дебагерами, програматорами це інколи дуже гарні гроші, прям дуже Тому в роки студентства я не міг собі дозволити оригінальний St Link V2 і тому довгий час возився з свистками з не зрозумілими клонами stm32f103**** в середині, що мені коштували не один нейрончик спалений в моїй голові.
-Після десятка годин роботи з неякісними клонами я вирішив взяти себе в руки і купити оригінальний, красивий StLink V2 І все було б добре, якби це був оригінал&hellip; Проблема виникла в дуже не приємний момент.">
+<meta name="description" content="# Вступ Треба інколи дебажити що там якась апка каже серіал порту і проводити реверс інженеринг того всього. Найпростіше що спадає на думку це взяти логічний аналізатор і аналізувати те що бігає по проводках, а краще осцилограф&hellip;
+Це такий собі варіант коли в нас попросту немає куди під&rsquo;єднатися, або в девайсі тільки usb і максимально не хочеться паятися, розбирати то, або в нас RS232 12V і логічні аналізатори те не андерстуд(згорить нафіг).">
 
 
 
@@ -275,7 +274,7 @@
 
 
 <li>
-    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/stm32-stlink-clone/) title="telegram" rel="me">
+    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/debug-serial-port/) title="telegram" rel="me">
     <span class="inline-svg">
 
     
@@ -296,7 +295,7 @@
 </li>
 
 <li>
-    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/stm32-stlink-clone/) title="github" rel="me">
+    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/debug-serial-port/) title="github" rel="me">
     <span class="inline-svg">
 
     
@@ -369,7 +368,7 @@
     <article class="post h-entry">
         <div class="post-header">
             <header>
-                <h1 class="p-name post-title">Робимо з клона майже оригінал (stlinkv2)</h1>
+                <h1 class="p-name post-title">Debug Serial Port</h1>
                 
 
             </header>
@@ -380,12 +379,12 @@
 <div class="post-info noselect">
     
         <div class="post-date dt-published">
-            <time datetime="2024-06-26">2024-06-26</time>
+            <time datetime="2024-07-26">2024-07-26</time>
             
         </div>
     
 
-    <a class="post-hidden-url u-url" href="/posts/stm32-stlink-clone/">/posts/stm32-stlink-clone/</a>
+    <a class="post-hidden-url u-url" href="/posts/debug-serial-port/">/posts/debug-serial-port/</a>
     <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
 
 
@@ -406,6 +405,22 @@
 
 
   
+  
+  
+  <details class="toc noselect">
+    <summary>Table of Contents</summary>
+    <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#вступ">Вступ</a></li>
+    <li><a href="#що-нам-потрібно">Що нам потрібно?</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#що-робити">Що робити?</a></li>
+  </ul>
+</nav></div>
+  </details>
   
 
 
@@ -429,47 +444,61 @@
 </script>
 
         <div class="content e-content">
-            <blockquote>
-<p>Гарний інструмент коштує дорого</p>
-</blockquote>
-<h1 id="хейт-спіч-вступ" >
+            <h2 id="вступ" >
 <div>
-    <a href="#%d1%85%d0%b5%d0%b9%d1%82-%d1%81%d0%bf%d1%96%d1%87-%d0%b2%d1%81%d1%82%d1%83%d0%bf">
-        ##
+    <a href="#%d0%b2%d1%81%d1%82%d1%83%d0%bf">
+        #
     </a>
-    Хейт спіч (вступ)
+    Вступ
 </div>
-</h1>
-<p>В випадку з оригінальними девкітами, дебагерами, програматорами це інколи дуже гарні гроші, прям дуже
-Тому в роки студентства я не міг собі дозволити оригінальний St Link V2 і тому довгий час возився з свистками з не зрозумілими клонами stm32f103**** в середині, що мені коштували не один нейрончик спалений в моїй голові.</p>
-<p>Після десятка годин роботи з неякісними клонами я вирішив взяти себе в руки і купити оригінальний, красивий StLink V2
-<img src="/images/stlinkv2Clone1.jpg" alt="alt">
-<img src="/images/mb936_internal-front2.jpg" alt="alt"></p>
-<p>І все було б добре, якби це був оригінал&hellip;
-Проблема виникла в дуже не приємний момент. Коли мені скидають бінарнік для прошивки плати, я підключаюсь STM32CubeProgrammer і ніби все добре, а плата не підключається, заходжу в STM32CubeIDE, прошиваю звідти прошивкою - Все ок, починаю дебажити - Все ок&hellip; А програмер працювати не хоче(</p>
-<p>Трохи почухав голову, згадав що міняв версію прошивки і після цьогоооо замість Serial Number, в мене буковка T появилась&hellip; А потім я ще перепрошивав з ST-LinkV2 на J-Link (треба було для NRF терміново програматор, а нічого більше не було під рукою) і тоді нічого не працювало&hellip; І тут мене почали кусати думки що походу це не оригінал&hellip;</p>
-<p>Відкривши кришку я побачив доволі знайомий з студентства &ldquo;geehy apm32f103cbt6&rdquo;. Це не поганий клон stm32, він працює в програматорах, але це клон, клони рідко коли бувають краще, або хоча б такі як оригінал&hellip; Тому я почав думати.</p>
-<p>Мені треба &ldquo;оригінальний&rdquo; і робочий інструмент.</p>
-<h1 id="що-треба-робити" >
+</h2>
+<p>Треба інколи дебажити що там якась апка каже серіал порту і проводити реверс інженеринг того всього. Найпростіше що спадає на думку це взяти логічний аналізатор і аналізувати те що бігає по проводках, а краще осцилограф&hellip;</p>
+<p>Це такий собі варіант коли в нас попросту немає куди під&rsquo;єднатися, або в девайсі тільки usb і максимально не хочеться паятися, розбирати то, або в нас RS232 12V і логічні аналізатори те не андерстуд(згорить нафіг). Тому сьогодні гайд для Windows як то аналізувати(у Linux це теж поможе там потрібно юзати socat, або tty0tty), не виходячи з-за компа.</p>
+<h2 id="що-нам-потрібно" >
 <div>
-    <a href="#%d1%89%d0%be-%d1%82%d1%80%d0%b5%d0%b1%d0%b0-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8">
-        ##
+    <a href="#%d1%89%d0%be-%d0%bd%d0%b0%d0%bc-%d0%bf%d0%be%d1%82%d1%80%d1%96%d0%b1%d0%bd%d0%be">
+        #
     </a>
-    Що треба робити?
+    Що нам потрібно?
 </div>
-</h1>
-<p>Цей програматор працює з STM32 Utility(примітка, ті МК з якими я працюю не працюють ВЖЕ з цією апкою, вона актуальна під старі чіпи) тому зашити через неї в оригінальний STM32F103C8T6 якусь прошивку не складе великої проблеми.</p>
-<p>Беремо Bluepill</p>
-<p><img src="/images/stm32bluepill.jpg" alt="alt"></p>
-<p>І зашиваємо <a href="https://github.com/open-plc-com/firmwares/blob/master/STM32F103C8T6/ST-Link/STLinkV2.J16.S4.bin"><em>firmware</em></a></p>
-<p>Наступний етап най противніший, переставляємо замість <em>geehy</em> stm32f103c8t6, по розпіновці вони абсолютно pin to pin.</p>
-<p>Після вдалої трансплантації в вас повністю робочий StLink V2.</p>
-<p><img src="/images/stm32_cube_programmer.png" alt="alt"></p>
-<p>Після цих маніпуляцій можна провести firmware upgrade і користуватися як вам потрібно як звичайним STLINK програматором.</p>
-<p>Розпіновка SWD зберігається. JTAG не користуюсь, за нього не ручаюсь.
-<img src="/images/stlinkv2pinout.jpg" alt="alt"></p>
-<p>В теорії китайські свистки з цим же камушком теж можна переробити під &ldquo;оригінальний&rdquo; програматор.</p>
-<p><img src="/images/stlinkv2Clone2.jpg" alt="alt"></p>
+</h2>
+<p>Потрібно звантажити та встановити Virtual Serial Port Tools
+<img src="/images/virtual-serial-port-tools.png" alt="alt">
+Так ця апка виглядає в середині і що вона дозволяє робити?
+Створювати віртуальні Serial COM порти які з&rsquo;єднані між собою.</p>
+<h4 id="навіщо" >
+<div>
+    <a href="#%d0%bd%d0%b0%d0%b2%d1%96%d1%89%d0%be">
+        ###
+    </a>
+    Навіщо?
+</div>
+</h4>
+<p>Нижче наведено кейси з якими можна використовувати цю апку.
+<img src="/images/virtual-serial-port-tools-cases.png" alt="alt"></p>
+<p>Якщо в Linux під python є спеціальна бібліотека (<a href="https://github.com/ezramorris/PyVirtualSerialPorts">LINK</a>) то в нашому випадку з Windows і python не може так просто взяти і створити віртуальний порт. Тому любимось як можемо.</p>
+<h2 id="що-робити" >
+<div>
+    <a href="#%d1%89%d0%be-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8">
+        #
+    </a>
+    Що робити?
+</div>
+</h2>
+<p><img src="/images/device-manager-COM-ports.png" alt="alt"></p>
+<ol>
+<li>Качаємо мою апку за <a href="https://github.com/black-ghost-off/serial-port-logger">посиланням</a> яка буде якраз таки логувати все в CSV файл в любому зручному вам форматі(ASCII, BIN, HEX), який ви потім якось відкриєте і будете аналізувати.</li>
+<li>Качаємо Virtual Serial Port Tools(гугля допомже).</li>
+<li>Налаштовуємо bridge як показано в першій картинці. (COM* &lt;-&gt; COM*).</li>
+<li>Підключаємось апкою одним кінцем до справжнього COM порта(наприклад в мене це COM18), а іншим до одного з віртуальних портів(наприклад до COM10).</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>python COMLogger.py --real COM18 --virt COM10 --baud <span style="color:#ff9f43">115200</span> --mode hex
+</span></span></code></pre></div><ol start="5">
+<li>Підключаємось додатком який має спілкуватися з вашим девайсом(наприклад Arduino Monitor).</li>
+<li>Done.
+<img src="/images/serial-logger-csvexample.png" alt="alt">
+Тепер сидимо і аналізуємо)</li>
+</ol>
 
         </div>
 
