@@ -1,560 +1,197 @@
 <!DOCTYPE html>
-
-
-<html lang="ua-ua" data-theme="">
-<head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>Posts - microdiy.space</title>
-
-<meta name="description" content="">
-
-
-
-
-
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="microdiy.space" />
-<link rel="icon" type="image/x-icon" href='favicon.ico'>
-<link rel="apple-touch-icon-precomposed" href='favicon.ico' >
-
-
-
-
-
-
-
+<html lang="ua-ua"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts | microdiy.space</title>
 
     
 
 
+
+<meta name="author" content="" />
+<meta name="description" content="" />
+
+
+<link rel="canonical" href="https://microdiy.space/posts/" />
+
+
+<meta property="og:url" content="https://microdiy.space/posts/">
+  <meta property="og:site_name" content="microdiy.space">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="ua_ua">
+  <meta property="og:type" content="website">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+
+
+<meta name="generator" content="Hugo 0.127.0">
+
+<link rel="stylesheet" href="/css/output.css" />
 
 <style>
-  body {
-    visibility: hidden;
-    opacity: 0;
-  }
+
+
+
 </style>
 
-<noscript>
-  <style>
-    body {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
-</noscript>
 
-
-
+     
 
     
 
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
 
-
-
+  <body x-data="{
+    flip: false,
+  }">
+    
+    <div id="dream-global-bg"></div>
 
     
-    
-        
-    
-    
+<nav class="mt-4 lg:mt-8 py-4">
 
-    
-        <link rel="stylesheet" href="/css/style.min.184a655c5ad8596648622468e6696abf0cf0a2cf8266df17b4f7a36fe9c97551.css" integrity="sha256-GEplXFrYWWZIYiRo5mlqvwzwos&#43;CZt8XtPejb&#43;nJdVE=">
-    
-
-
-
-
-
-    
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <a href="/" style="font-size: 150%;">microdiy.space</a>
+    </section>
+    <section class="flex items-center gap-4">
+      <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/)>GIT</a>
+      <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/)>TELEGRAM</a>
+    </section>
+  </div>
+</nav>
 
 
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="/css/style.min.c4c04b3ef88e3d619ad4c7ee5e03048422bc55c4fefdc1f07657c1133670aa22.css" integrity="sha256-xMBLPviOPWGa1MfuXgMEhCK8VcT&#43;/cHwdlfBEzZwqiI=">
-    
-
-
-
-
-
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="/css/style.min.21c5d8fe0a79d623b0adc1ce4bd4f6dd2c05cd939c9aaaa966ba7186b1464f4d.css" integrity="sha256-IcXY/gp51iOwrcHOS9T23SwFzZOcmqqpZrpxhrFGT00=">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <script src="/js/script.min.08f04d96386c73c9bf4d160333f8f448c05a6e01c06770542ee0e013954ce930.js" type="text/javascript" charset="utf-8" integrity="sha256-CPBNljhsc8m/TRYDM/j0SMBabgHAZ3BULuDgE5VM6TA="></script>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</head>
-<body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header class="common-header">
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
             
-                <div class="header-top">
-    <div class="header-top-left">
-        <h1 class="site-title noselect">
-    <a href="/">microdiy.space</a>
-</h1>
 
-        
-
-
-
-
-
-
-
+<div class="mt-8 lg:mt-12 px-4">
+  <div class="mx-auto prose dark:prose-invert">
+    <h1 class="text-3xl">
+      Archives
+    </h1>
     
-        <div class="theme-switcher">
-            <span class="inline-svg">
+  </div>
 
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sun-high"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg>
-
-
-</span>
-
+  <div class="max-w-[65ch] mx-auto mt-8 lg:mt-12">
+    <ul class="timeline timeline-vertical">
+      
+      <li class="[--timeline-col-start:64px]">
+        <hr class="dark:bg-base-content" />
+        <div class="timeline-start !justify-self-start">
+          <div class="text-lg font-semibold">2024</div>
         </div>
-    
+        <div class="timeline-middle flex items-center mx-8 my-2">
+          <ion-icon name="time"></ion-icon>
+        </div>
+        <div class="timeline-end timeline-box dark:border-base-content/60 prose dark:prose-invert my-8">
+          <ul>
+            
+            <li>
+              <a href="/posts/debug-serial-port/">Дебаг Serial порта(сніфінг)</a>
+            </li>
+            
+            <li>
+              <a href="/posts/stm32-stlink-clone/">Робимо з клона майже оригінал (stlinkv2)</a>
+            </li>
+            
+            <li>
+              <a href="/posts/grafana-ploter/">Grafana Ploter</a>
+            </li>
+            
+            <li>
+              <a href="/posts/my-first-post/">My First Post</a>
+            </li>
+            
+          </ul>
+        </div>
+        <hr class="dark:bg-base-content" />
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>© 2024 microdiy.space</p>
+  
+
+</div>
+
+              
+            </footer>
+          </div>
+        </div>
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
+
+  
+
+  
+  
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
-        const STORAGE_KEY = 'user-color-scheme'
-        const defaultTheme = "light"
+  window.lightTheme =  null 
+  window.darkTheme =  null 
 
-        let currentTheme
-        let switchButton
-        let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
-
-        function switchTheme(e) {
-            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
-            if (localStorage) localStorage.setItem(STORAGE_KEY, currentTheme);
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            changeGiscusTheme(currentTheme);
-            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
-        }
-
-        const autoChangeScheme = e => {
-            currentTheme = e.matches ? 'dark' : 'light'
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            changeGiscusTheme(currentTheme);
-            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            switchButton = document.querySelector('.theme-switcher')
-            currentTheme = detectCurrentScheme()
-
-            if (currentTheme === 'auto') {
-                autoChangeScheme(autoDefinedScheme);
-                autoDefinedScheme.addListener(autoChangeScheme);
-            } else {
-                document.documentElement.setAttribute('data-theme', currentTheme)
-            }
-
-            if (switchButton) {
-                switchButton.addEventListener('click', switchTheme, false)
-            }
-
-            showContent();
-        })
-
-        function detectCurrentScheme() {
-            if (localStorage !== null && localStorage.getItem(STORAGE_KEY)) {
-                return localStorage.getItem(STORAGE_KEY)
-            }
-            if (defaultTheme) {
-                return defaultTheme
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-
-        function showContent() {
-            document.body.style.visibility = 'visible';
-            document.body.style.opacity = 1;
-        }
-
-        function changeGiscusTheme (theme) {
-            function sendMessage(message) {
-              const iframe = document.querySelector('iframe.giscus-frame');
-              if (!iframe) return;
-              iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-            }
-
-            sendMessage({
-              setConfig: {
-                theme: theme
-              }
-            });
-        }
-    </script>
-
-
-        <ul class="social-icons noselect">
-
-
-
-<li>
-    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/) title="telegram" rel="me">
-    <span class="inline-svg">
-
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
     
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
-
-
-</span>
-
-    </a>
-</li>
-
-<li>
-    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/) title="github" rel="me">
-    <span class="inline-svg">
-
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
-
-
-</span>
-
-    </a>
-</li>
-
-
-
-
-
-    <li>
-            <a href="/index.xml" title="RSS" rel="me">
-            <span class="inline-svg">
-
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 4a16 16 0 0 1 16 16" /><path d="M4 11a9 9 0 0 1 9 9" /></svg>
-
-
-</span>
-
-            </a>
-        </li>
-    
-
-</ul>
-
-    </div>
-    <div class="header-top-right">
-
-    </div>
-</div>
-
-
-    <nav></nav>
-
-
-
-
-
-
-
-
-            
-        </header>
-        <main id="main" tabindex="-1">
-            
-    <div class="index-content">
-        
-    </div>
-
-    <div class="articles h-feed">
-        <h1 class="post-title">Posts</h1>
-        
-        
-
-        
-        
-
-        
-            <div class="post-short-list h-entry">
-                <div class="post-header">
-                    <header>
-                        <h2 class="p-name post-title"><a class="u-url" href="/posts/debug-serial-port/">Дебаг Serial порта(сніфінг)</a></h2>
-                        
-
-                    </header>
-                </div>
-                
-                
-
-
-
-<div class="post-info noselect">
-    
-        <div class="post-date dt-published">
-            <time datetime="2024-07-26">2024-07-26</time>
-            
-        </div>
-    
-
-    <a class="post-hidden-url u-url" href="/posts/debug-serial-port/">/posts/debug-serial-port/</a>
-    <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
-
-
-    <div class="post-taxonomies">
-        
-        
-        
-    </div>
-</div>
-
-            </div>
-        
-            <div class="post-short-list h-entry">
-                <div class="post-header">
-                    <header>
-                        <h2 class="p-name post-title"><a class="u-url" href="/posts/stm32-stlink-clone/">Робимо з клона майже оригінал (stlinkv2)</a></h2>
-                        
-
-                    </header>
-                </div>
-                
-                
-
-
-
-<div class="post-info noselect">
-    
-        <div class="post-date dt-published">
-            <time datetime="2024-06-26">2024-06-26</time>
-            
-        </div>
-    
-
-    <a class="post-hidden-url u-url" href="/posts/stm32-stlink-clone/">/posts/stm32-stlink-clone/</a>
-    <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
-
-
-    <div class="post-taxonomies">
-        
-        
-        
-    </div>
-</div>
-
-            </div>
-        
-            <div class="post-short-list h-entry">
-                <div class="post-header">
-                    <header>
-                        <h2 class="p-name post-title"><a class="u-url" href="/posts/grafana-ploter/">Grafana Ploter</a></h2>
-                        
-
-                    </header>
-                </div>
-                
-                
-
-
-
-<div class="post-info noselect">
-    
-        <div class="post-date dt-published">
-            <time datetime="2024-05-12">2024-05-12</time>
-            
-        </div>
-    
-
-    <a class="post-hidden-url u-url" href="/posts/grafana-ploter/">/posts/grafana-ploter/</a>
-    <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
-
-
-    <div class="post-taxonomies">
-        
-        
-        
-    </div>
-</div>
-
-            </div>
-        
-            <div class="post-short-list h-entry">
-                <div class="post-header">
-                    <header>
-                        <h2 class="p-name post-title"><a class="u-url" href="/posts/my-first-post/">My First Post</a></h2>
-                        
-
-                    </header>
-                </div>
-                
-                
-
-
-
-<div class="post-info noselect">
-    
-        <div class="post-date dt-published">
-            <time datetime="2024-05-10">2024-05-10</time>
-            
-        </div>
-    
-
-    <a class="post-hidden-url u-url" href="/posts/my-first-post/">/posts/my-first-post/</a>
-    <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
-
-
-    <div class="post-taxonomies">
-        
-        
-        
-    </div>
-</div>
-
-            </div>
-        
-        
-    </div>
-
-
-        </main>
-        
-            <footer class="common-footer noselect">
-    
-    
-
-    <div class="common-footer-bottom">
-        
-
-        <div style="display: flex; align-items: center; gap:8px">
-            © black.ghost.off, 2024
-            
-        </div>
-        <div style="display:flex;align-items: center">
-            
-            
-            
-            
-            
-            
-        </div>
-        <div>
-            
-
-        </div>
-    </div>
-
-    <p class="h-card vcard">
-
-    <a href=https://microdiy.space/ class="p-name u-url url fn" rel="me"></a>
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+     
 
     
 
     
-</p>
 
-</footer>
-
-        
-    </div>
-</body>
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>

@@ -1,10 +1,8 @@
 baseURL = "https://microdiy.space/"
 languageCode = "ua-ua"
-theme = "anubis2"
+theme = "dream"
 title = "microdiy.space"
 
-[author]
-name = "black.ghost.off"
 
 [markup.goldmark.renderer]
 unsafe = true # Enable unsafe mode to have a better experience
@@ -17,10 +15,6 @@ style = 'base16-snazzy' # Highlight.js style
 # An arbitrary name for this target.
 name = "AWS"
 URL = "s3://microdiy-space?region=eu-central-1"
-
-[params]
-    instagramLink = "https://instagram.com/EXAMPLE"
-
 
 [module]
     [[module.mounts]]

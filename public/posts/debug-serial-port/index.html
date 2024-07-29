@@ -1,117 +1,55 @@
 <!DOCTYPE html>
-
-
-<html lang="ua-ua" data-theme="">
-<head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>Дебаг Serial порта(сніфінг) - microdiy.space</title>
-
-<meta name="description" content="# Вступ Треба інколи дебажити(сніфити) що там якась апка каже серіал порту і проводити реверс інженеринг того всього. Найпростіше що спадає на думку це взяти логічний аналізатор і аналізувати те що бігає по проводках, а краще осцилограф&hellip;
-Це такий собі варіант коли в нас попросту немає куди під&rsquo;єднатися, або в девайсі тільки usb і максимально не хочеться паятися, розбирати то, або в нас RS232 12V і логічні аналізатори те не андерстуд(згорить нафіг).">
-
-
-
-
-
-<link rel="icon" type="image/x-icon" href='favicon.ico'>
-<link rel="apple-touch-icon-precomposed" href='favicon.ico' >
-
-
-
-
-
-
-
+<html lang="ua-ua"
+  x-data
+  :class="$store.darkMode.class()"
+  :data-theme="$store.darkMode.theme()">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дебаг Serial порта(сніфінг) | microdiy.space</title>
 
     
 
 
+
+<meta name="author" content="" />
+<meta name="description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux)." />
+
+
+<link rel="canonical" href="https://microdiy.space/posts/debug-serial-port/" />
+
+
+<meta property="og:url" content="https://microdiy.space/posts/debug-serial-port/">
+  <meta property="og:site_name" content="microdiy.space">
+  <meta property="og:title" content="Дебаг Serial порта(сніфінг)">
+  <meta property="og:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux).">
+  <meta property="og:locale" content="ua_ua">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-26T11:03:02+03:00">
+    <meta property="article:modified_time" content="2024-07-26T11:03:02+03:00">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Дебаг Serial порта(сніфінг)">
+  <meta name="twitter:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux).">
+
+
+
+<meta name="generator" content="Hugo 0.127.0">
+
+<link rel="stylesheet" href="/css/output.css" />
 
 <style>
-  body {
-    visibility: hidden;
-    opacity: 0;
-  }
+
+
+
 </style>
 
-<noscript>
-  <style>
-    body {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
-</noscript>
-
-
-
 
     
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="/css/style.min.184a655c5ad8596648622468e6696abf0cf0a2cf8266df17b4f7a36fe9c97551.css" integrity="sha256-GEplXFrYWWZIYiRo5mlqvwzwos&#43;CZt8XtPejb&#43;nJdVE=">
-    
-
-
-
-
-
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="/css/style.min.c4c04b3ef88e3d619ad4c7ee5e03048422bc55c4fefdc1f07657c1133670aa22.css" integrity="sha256-xMBLPviOPWGa1MfuXgMEhCK8VcT&#43;/cHwdlfBEzZwqiI=">
-    
-
-
-
-
-
-    
-
-
-
-
-
-    
-    
-        
-    
-    
-
-    
-        <link rel="stylesheet" href="/css/style.min.21c5d8fe0a79d623b0adc1ce4bd4f6dd2c05cd939c9aaaa966ba7186b1464f4d.css" integrity="sha256-IcXY/gp51iOwrcHOS9T23SwFzZOcmqqpZrpxhrFGT00=">
-    
-
-
-
-
-
 
 
 
@@ -121,374 +59,89 @@
 
     
 
-    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
 
-
-
-
-
+  <body x-data="{
+    flip: false,
+  }">
     
-    
-        
-    
-    
+    <div id="dream-global-bg"></div>
 
     
-        <script src="/js/script.min.08f04d96386c73c9bf4d160333f8f448c05a6e01c06770542ee0e013954ce930.js" type="text/javascript" charset="utf-8" integrity="sha256-CPBNljhsc8m/TRYDM/j0SMBabgHAZ3BULuDgE5VM6TA="></script>
-    
+<nav class="mt-4 lg:mt-8 py-4">
+
+  <div class="container flex justify-between px-4">
+    <section class="flex items-center gap-4">
+      <a href="/" style="font-size: 150%;">microdiy.space</a>
+    </section>
+    <section class="flex items-center gap-4">
+      <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/debug-serial-port/)>GIT</a>
+      <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/debug-serial-port/)>TELEGRAM</a>
+    </section>
+  </div>
+</nav>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</head>
-<body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header class="common-header">
+    <div class="flip-container" :class="{ 'flip-it': flip }">
+      <div class="flipper">
+        <div class="front">
+          <div class="container">
             
-                <div class="header-top">
-    <div class="header-top-left">
-        <h1 class="site-title noselect">
-    <a href="/">microdiy.space</a>
-</h1>
-
-        
-
-
-
-
-
-
-
+<div class="mt-4 px-4">
+  
+  <div>
+  
     
-        <div class="theme-switcher">
-            <span class="inline-svg">
+    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+      <header>
+        <h1>Дебаг Serial порта(сніфінг)</h1>
+        <p class="text-sm">
+          
+            
+              Friday, Jul 26, 2024
+            
+          
 
-    
+          | <span>2 minutes read</span>
+
+          
+          | <span>Update at
+            
+              
+                Friday, Jul 26, 2024
+              
+            </span>
+          
+        </p>
+        <div class="flex justify-between">
+          
 
 
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-sun-high"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg>
-
-
-</span>
+          
 
         </div>
-    
+      </header>
 
-    <script>
-        const STORAGE_KEY = 'user-color-scheme'
-        const defaultTheme = "light"
+      
 
-        let currentTheme
-        let switchButton
-        let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
-
-        function switchTheme(e) {
-            currentTheme = (currentTheme === 'dark') ? 'light' : 'dark';
-            if (localStorage) localStorage.setItem(STORAGE_KEY, currentTheme);
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            changeGiscusTheme(currentTheme);
-            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
-        }
-
-        const autoChangeScheme = e => {
-            currentTheme = e.matches ? 'dark' : 'light'
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            changeGiscusTheme(currentTheme);
-            document.body.dispatchEvent(new CustomEvent(currentTheme + "-theme-set"));
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            switchButton = document.querySelector('.theme-switcher')
-            currentTheme = detectCurrentScheme()
-
-            if (currentTheme === 'auto') {
-                autoChangeScheme(autoDefinedScheme);
-                autoDefinedScheme.addListener(autoChangeScheme);
-            } else {
-                document.documentElement.setAttribute('data-theme', currentTheme)
-            }
-
-            if (switchButton) {
-                switchButton.addEventListener('click', switchTheme, false)
-            }
-
-            showContent();
-        })
-
-        function detectCurrentScheme() {
-            if (localStorage !== null && localStorage.getItem(STORAGE_KEY)) {
-                return localStorage.getItem(STORAGE_KEY)
-            }
-            if (defaultTheme) {
-                return defaultTheme
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-
-        function showContent() {
-            document.body.style.visibility = 'visible';
-            document.body.style.opacity = 1;
-        }
-
-        function changeGiscusTheme (theme) {
-            function sendMessage(message) {
-              const iframe = document.querySelector('iframe.giscus-frame');
-              if (!iframe) return;
-              iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-            }
-
-            sendMessage({
-              setConfig: {
-                theme: theme
-              }
-            });
-        }
-    </script>
-
-
-        <ul class="social-icons noselect">
-
-
-
-<li>
-    <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/debug-serial-port/) title="telegram" rel="me">
-    <span class="inline-svg">
-
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
-
-
-</span>
-
-    </a>
-</li>
-
-<li>
-    <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/debug-serial-port/) title="github" rel="me">
-    <span class="inline-svg">
-
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
-
-
-</span>
-
-    </a>
-</li>
-
-
-
-
-
-    <li>
-            <a href="/index.xml" title="RSS" rel="me">
-            <span class="inline-svg">
-
-    
-
-
-    
-    
-    
-    
-    
-
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 4a16 16 0 0 1 16 16" /><path d="M4 11a9 9 0 0 1 9 9" /></svg>
-
-
-</span>
-
-            </a>
-        </li>
-    
-
-</ul>
-
-    </div>
-    <div class="header-top-right">
-
-    </div>
-</div>
-
-
-    <nav></nav>
-
-
-
-
-
-
-
-
-            
-        </header>
-        <main id="main" tabindex="-1">
-            
-    
-
-    <article class="post h-entry">
-        <div class="post-header">
-            <header>
-                <h1 class="p-name post-title">Дебаг Serial порта(сніфінг)</h1>
-                
-
-            </header>
-            
-
-
-
-<div class="post-info noselect">
-    
-        <div class="post-date dt-published">
-            <time datetime="2024-07-26">2024-07-26</time>
-            
-        </div>
-    
-
-    <a class="post-hidden-url u-url" href="/posts/debug-serial-port/">/posts/debug-serial-port/</a>
-    <a href="https://microdiy.space/" class="p-name p-author post-hidden-author h-card" rel="me"></a>
-
-
-    <div class="post-taxonomies">
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-        
-
-  
-  
-
-
-
-
-  
-  
-  
-  <details class="toc noselect">
-    <summary>Table of Contents</summary>
-    <div class="inner"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#вступ">Вступ</a></li>
-    <li><a href="#що-нам-потрібно">Що нам потрібно?</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#що-робити">Що робити?</a></li>
-  </ul>
-</nav></div>
-  </details>
-  
-
-
-
-<script>
-  var toc = document.querySelector(".toc");
-  if (toc) {
-    toc.addEventListener("click", function () {
-      if (event.target.tagName !== "A") {
-        event.preventDefault();
-        if (this.open) {
-          this.open = false;
-          this.classList.remove("expanded");
-        } else {
-          this.open = true;
-          this.classList.add("expanded");
-        }
-      }
-    });
-  }
-</script>
-
-        <div class="content e-content">
-            <h2 id="вступ" >
-<div>
-    <a href="#%d0%b2%d1%81%d1%82%d1%83%d0%bf">
-        #
-    </a>
-    Вступ
-</div>
-</h2>
-<p>Треба інколи дебажити(сніфити) що там якась апка каже серіал порту і проводити реверс інженеринг того всього. Найпростіше що спадає на думку це взяти логічний аналізатор і аналізувати те що бігає по проводках, а краще осцилограф&hellip;</p>
-<p>Це такий собі варіант коли в нас попросту немає куди під&rsquo;єднатися, або в девайсі тільки usb і максимально не хочеться паятися, розбирати то, або в нас RS232 12V і логічні аналізатори те не андерстуд(згорить нафіг). Тому сьогодні гайд для Windows як то аналізувати(у Linux це теж поможе там потрібно юзати socat, або tty0tty), не виходячи з-за компа.</p>
-<h2 id="що-нам-потрібно" >
-<div>
-    <a href="#%d1%89%d0%be-%d0%bd%d0%b0%d0%bc-%d0%bf%d0%be%d1%82%d1%80%d1%96%d0%b1%d0%bd%d0%be">
-        #
-    </a>
-    Що нам потрібно?
-</div>
-</h2>
+      <h2 id="вступ">Вступ</h2>
+<p>Треба інколи <strong>дебажити</strong>(<strong>сніфити</strong>) що там якась апка каже серіал порту і проводити реверс інженеринг того всього. Найпростіше що спадає на думку це взяти логічний аналізатор і аналізувати те що бігає по проводках, а краще осцилограф&hellip;</p>
+<p>Це такий собі варіант коли в нас попросту немає куди під&rsquo;єднатися, або в девайсі тільки usb і максимально не хочеться паятися, розбирати то, або в нас <em>RS232 12V</em> і логічні аналізатори те не андерстуд(згорить нафіг). Тому сьогодні гайд для *Windows *як то аналізувати(у Linux це теж поможе там потрібно юзати socat, або <em>tty0tty</em>), не виходячи з-за компа.</p>
+<h2 id="що-нам-потрібно">Що нам потрібно?</h2>
 <p>Потрібно звантажити та встановити Virtual Serial Port Tools
 <img src="/images/virtual-serial-port-tools.png" alt="alt">
 Так ця апка виглядає в середині і що вона дозволяє робити?
 Створювати віртуальні Serial COM порти які з&rsquo;єднані між собою.</p>
-<h4 id="навіщо" >
-<div>
-    <a href="#%d0%bd%d0%b0%d0%b2%d1%96%d1%89%d0%be">
-        ###
-    </a>
-    Навіщо?
-</div>
-</h4>
+<h4 id="навіщо">Навіщо?</h4>
 <p>Нижче наведено кейси з якими можна використовувати цю апку.
 <img src="/images/virtual-serial-port-tools-cases.png" alt="alt"></p>
-<p>Якщо в Linux під python є спеціальна бібліотека (<a href="https://github.com/ezramorris/PyVirtualSerialPorts">LINK</a>) то в нашому випадку з Windows і python не може так просто взяти і створити віртуальний порт. Тому любимось як можемо.</p>
-<h2 id="що-робити" >
-<div>
-    <a href="#%d1%89%d0%be-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8">
-        #
-    </a>
-    Що робити?
-</div>
-</h2>
+<p>Якщо в Linux під python є спеціальна бібліотека <strong>(<a href="https://github.com/ezramorris/PyVirtualSerialPorts">LINK</a>)</strong> то в нашому випадку з Windows і python не може так просто взяти і створити віртуальний порт. Тому любимось як можемо.</p>
+<h2 id="що-робити">Що робити?</h2>
 <p><img src="/images/device-manager-COM-ports.png" alt="alt"></p>
 <ol>
-<li>Качаємо мою апку за <a href="https://github.com/black-ghost-off/serial-port-logger">посиланням</a> яка буде якраз таки логувати все в CSV файл в любому зручному вам форматі(ASCII, BIN, HEX), який ви потім якось відкриєте і будете аналізувати.</li>
-<li>Качаємо Virtual Serial Port Tools(гугля допомже).</li>
+<li>Качаємо мою апку за <strong><a href="https://github.com/black-ghost-off/serial-port-logger">посиланням</a></strong> яка буде якраз таки логувати все в CSV файл в любому зручному вам форматі(<strong>ASCII, BIN, HEX</strong>), який ви потім якось відкриєте і будете аналізувати.</li>
+<li>Качаємо <em>Virtual Serial Port Tools</em>(гугля допомже).</li>
 <li>Налаштовуємо bridge як показано в першій картинці. (COM* &lt;-&gt; COM*).</li>
 <li>Підключаємось апкою одним кінцем до справжнього COM порта(наприклад в мене це COM18), а іншим до одного з віртуальних портів(наприклад до COM10).</li>
 </ol>
@@ -500,76 +153,97 @@
 Тепер сидимо і аналізуємо)</li>
 </ol>
 
-        </div>
 
+      
     </article>
+  </div>
 
-    
-    
+  
 
-    
-        
-        
-    
+  
 
-    
-
-    
-        
-
-
-
-
-
-
-
-
-
+  <section class="max-w-[65ch] mx-auto space-y-4">
     
 
     
 
     
+  </section>
+</div>
 
-        </main>
-        
-            <footer class="common-footer noselect">
-    
-    
 
-    <div class="common-footer-bottom">
-        
+            <footer class="flex justify-between items-center gap-2 px-4 py-12">
+              <div>
+  
+  <p>© 2024 microdiy.space</p>
+  
 
-        <div style="display: flex; align-items: center; gap:8px">
-            © black.ghost.off, 2024
-            
+</div>
+
+              
+            </footer>
+          </div>
         </div>
-        <div style="display:flex;align-items: center">
-            
-            
-            
-            
-            
-            
-        </div>
-        <div>
-            
+        <div class="back">
+          <div class="container">
+            <div class="dream-grid">
+  
 
+  
+
+  
+  
+</div>
+
+          </div>
         </div>
+      </div>
     </div>
 
-    <p class="h-card vcard">
+    <script>
+  window.lightTheme =  null 
+  window.darkTheme =  null 
 
-    <a href=https://microdiy.space/ class="p-name u-url url fn" rel="me"></a>
+  window.hasTwitterEmbed =  null 
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+<script src="/js/grid.js"></script>
+<script src="/js/main.js"></script>
+
+    
+
+
+
+
+
+
 
     
 
     
-</p>
 
-</footer>
-
-        
-    </div>
-</body>
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  </body>
 </html>
