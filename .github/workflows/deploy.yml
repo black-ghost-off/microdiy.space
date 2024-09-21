@@ -3,8 +3,8 @@ name: Auto Deploy to S3
 on:
   push:
     branches:
-      - dev    # Deploy 'dev' branch to the development environment
-      - main   # Deploy 'main' branch to the production environment
+      - dev
+      - main
 
 jobs:
   deploy:
@@ -16,15 +16,24 @@ jobs:
 
     - name: Install Hugo
       run: |
-        # Install Hugo
         sudo apt-get update
         sudo apt-get install -y hugo
+  
+    - name: Set baseURL based on branch
+      run: |
+        if [ "${{ github.ref_name }}" == "main" ]; then
+          echo "Setting production baseURL"
+          echo 'baseURL = "https://microdiy.space/"' | cat - hugo.toml > temp && mv temp hugo.toml
+        elif [ "${{ github.ref_name }}" == "dev" ]; then
+          echo "Setting development baseURL"
+          echo 'baseURL = "https://dev.microdiy.space/"' | cat - hugo.toml > temp && mv temp hugo.toml
+        fi
+    
 
     - name: Build with Hugo
       run: |
-        ls -la
-        # Generate the static site
-        hugo --config hugo.toml --minify
+        # Build the site with baseURL overridden by baseurl_config.toml
+        hugo --config hugo.toml,baseurl_config.toml --minify
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v3
