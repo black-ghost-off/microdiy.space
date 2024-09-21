@@ -1,4 +1,3 @@
-baseURL = "https://microdiy.space/"
 languageCode = "ua-ua"
 theme = "dream"
 title = "microdiy.space"
@@ -12,9 +11,6 @@ style = 'base16-snazzy' # Highlight.js style
 
 [deployment]
 [[deployment.targets]]
-# An arbitrary name for this target.
-name = "AWS"
-URL = "s3://microdiy-space?region=eu-central-1"
 
 [module]
     [[module.mounts]]
