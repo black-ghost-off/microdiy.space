@@ -25,7 +25,7 @@ jobs:
       run: |
         ls -la
         # Generate the static site
-        hugo --minify
+        hugo --config hugo.toml --minify
 
     # - name: Configure AWS Credentials
     #   uses: aws-actions/configure-aws-credentials@v3
