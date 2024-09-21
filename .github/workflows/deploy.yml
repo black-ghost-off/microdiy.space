@@ -22,8 +22,9 @@ jobs:
 
     - name: Build with Hugo
       run: |
+        ls -la
         # Generate the static site
-        hugo --minify
+        hugo --config hugo.toml --minify
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v3
@@ -46,7 +47,7 @@ jobs:
 
     - name: Sync S3 bucket
       run: |
-        aws s3 sync ./public s3://${{ env.S3_BUCKET_NAME }} --delete
+        aws s3 sync ./public s3://${{ env.S3_BUCKET_NAME }} --delete --acl public-read
 
     - name: Invalidate CloudFront cache
       run: |
