@@ -9,9 +9,6 @@ unsafe = true # Enable unsafe mode to have a better experience
 [markup.highlight]
 style = 'base16-snazzy' # Highlight.js style
 
-[deployment]
-[[deployment.targets]]
-
 [module]
     [[module.mounts]]
     source = 'static'
