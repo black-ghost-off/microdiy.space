@@ -1,6 +1,7 @@
 languageCode = "ua-ua"
 theme = "hugo-theme-dream"
 title = "microdiy.space"
+defaultContentLanguage = "ua"
 
 
 [markup.goldmark.renderer]
@@ -17,3 +18,11 @@ style = 'base16-snazzy' # Highlight.js style
     [[module.mounts]]
     source = 'images'
     target = 'static/images'
+
+siteStartYear = 2024
+favicon = "favicon.ico"
+
+[params]
+headerTitle = "microdiy"
+[params.navItems]
+github = { href = "https://github.com/black-ghost-off/microdiy.space", target = "_blank", icon = "logo-github", title = "GitHub" }
