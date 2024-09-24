@@ -3,12 +3,14 @@
   x-data
   :class="$store.darkMode.class()"
   :data-theme="$store.darkMode.theme()">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дебаг Serial порта(сніфінг) | microdiy.space</title>
 
     
+
+<link rel="canonical" href="//localhost:1313/posts/debug-serial-port/" />
 
 
 
@@ -16,40 +18,45 @@
 <meta name="description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux)." />
 
 
-<link rel="canonical" href="https://microdiy.space/posts/debug-serial-port/" />
-
-
-<meta property="og:url" content="https://microdiy.space/posts/debug-serial-port/">
-  <meta property="og:site_name" content="microdiy.space">
-  <meta property="og:title" content="Дебаг Serial порта(сніфінг)">
-  <meta property="og:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux).">
-  <meta property="og:locale" content="ua_ua">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-07-26T11:03:02+03:00">
-    <meta property="article:modified_time" content="2024-07-26T11:03:02+03:00">
+<meta name="keywords" content="">
 
 
 
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Дебаг Serial порта(сніфінг)">
-  <meta name="twitter:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux).">
+<meta name="generator" content="Hugo 0.123.7">
 
 
+<meta property="og:title" content="Дебаг Serial порта(сніфінг)" />
+<meta property="og:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/posts/debug-serial-port/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-26T11:03:02+03:00" />
+<meta property="article:modified_time" content="2024-07-26T11:03:02+03:00" />
 
-<meta name="generator" content="Hugo 0.127.0">
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Дебаг Serial порта(сніфінг)"/>
+<meta name="twitter:description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux)."/>
+
+
+
 
 <link rel="stylesheet" href="/css/output.css" />
 
-<style>
 
-
-
-</style>
 
 
     
+
+
+<style>
+  pre {
+    padding: 1em;
+    overflow: auto;
+  }
+</style>
+
+
 
 
 
@@ -71,13 +78,120 @@
     
 <nav class="mt-4 lg:mt-8 py-4">
 
+  
   <div class="container flex justify-between px-4">
+  
     <section class="flex items-center gap-4">
-      <a href="/" style="font-size: 150%;">microdiy.space</a>
+      <div class="avatar cursor-pointer hover:online" @click="flip = !flip" title="Flip it!">
+        <div class="h-10 rounded-full">
+          <img src="/" alt="" />
+        </div>
+      </div>
+
+      
     </section>
-    <section class="flex items-center gap-4">
-      <a href='https://github.com/black-ghost-off'%!(EXTRA string=/posts/debug-serial-port/)>GIT</a>
-      <a href='https://t.me/microdiy_space'%!(EXTRA string=/posts/debug-serial-port/)>TELEGRAM</a>
+
+    <div class="dropdown dropdown-end sm:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Select an option">
+        <ion-icon name="menu" class="text-2xl"></ion-icon>
+      </div>
+      <ul class="dropdown-content menu w-36 bg-base-100 rounded-box z-[1] shadow-md">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a class="inline-flex items-center p-2 cursor-pointer" href="/posts" title="Archives">
+    <ion-icon name="archive"></ion-icon>
+    Archives
+  </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </div>
+    <section class="hidden sm:flex sm:items-center sm:gap-2 md:gap-4">
+      
+
+      
+      
+
+      
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+      
+<a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary" href="/posts" title="Archives">
+  <ion-icon class="group-hover:text-primary-content" name="archive"></ion-icon>
+</a>
+
+
+      
+      
+
+
+
+
+
+      
+      
+
+
+
+
+
+      
+
+      
+
+      
     </section>
   </div>
 </nav>
@@ -93,32 +207,74 @@
   <div>
   
     
-    <article class="mx-auto prose dark:prose-invert" id="dream-single-post-main">
+    <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
+      <meta itemprop="name" content="Дебаг Serial порта(сніфінг)">
+<meta itemprop="description" content="Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux)."><meta itemprop="datePublished" content="2024-07-26T11:03:02+03:00" />
+<meta itemprop="dateModified" content="2024-07-26T11:03:02+03:00" />
+<meta itemprop="wordCount" content="257">
+<meta itemprop="keywords" content="" />
+
       <header>
-        <h1>Дебаг Serial порта(сніфінг)</h1>
+        <h1 itemprop="headline">Дебаг Serial порта(сніфінг)</h1>
         <p class="text-sm">
           
+            Friday, Jul 26, 2024
+          
+
+          | <span>2 minute read</span>
+
+          
+          | <span>Updated at
             
               Friday, Jul 26, 2024
-            
-          
-
-          | <span>2 minutes read</span>
-
-          
-          | <span>Update at
-            
-              
-                Friday, Jul 26, 2024
-              
             </span>
           
         </p>
         <div class="flex justify-between">
-          
+          <div class="flex items-center">
+  
+  <span>@</span>
+  
+
+  <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+  
+    <span itemprop="name"></span>
+  
+  </span>
+</div>
 
 
-          
+          <div class="flex items-center gap-2">
+  
+  
+
+  
+  
+  
+  
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://x.com/intent/post?text=%d0%94%d0%b5%d0%b1%d0%b0%d0%b3%20Serial%20%d0%bf%d0%be%d1%80%d1%82%d0%b0%28%d1%81%d0%bd%d1%96%d1%84%d1%96%d0%bd%d0%b3%29&amp;url=//localhost:1313/posts/debug-serial-port/" target="_blank" rel="noopener noreferrer"
+      title="Share on X">
+      <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://facebook.com/sharer/sharer.php?u=//localhost:1313/posts/debug-serial-port/" target="_blank" rel="noopener noreferrer"
+      title="Share on Facebook">
+      <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
+    </a>
+  
+    <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
+      href="https://wa.me/?text=%d0%94%d0%b5%d0%b1%d0%b0%d0%b3%20Serial%20%d0%bf%d0%be%d1%80%d1%82%d0%b0%28%d1%81%d0%bd%d1%96%d1%84%d1%96%d0%bd%d0%b3%29%20//localhost:1313/posts/debug-serial-port/" target="_blank" rel="noopener noreferrer"
+      title="Share on WhatsApp">
+      <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
+    </a>
+  
+
+  
+  
+</div>
 
         </div>
       </header>
@@ -159,42 +315,70 @@
   </div>
 
   
-
-  
-
-  <section class="max-w-[65ch] mx-auto space-y-4">
-    
-
-    
-
-    
-  </section>
 </div>
 
 
+            
             <footer class="flex justify-between items-center gap-2 px-4 py-12">
+            
               <div>
   
   <p>© 2024 microdiy.space</p>
   
 
+  
+  <p class="text-sm">
+    🌱
+    <span class="text-base-content/60">
+      Powered by <a class="hover:underline" href="https://gohugo.io/" target="_blank">Hugo</a> with theme
+      <a class="hover:underline" href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</span
+    >
+  </p>
+  
 </div>
 
-              
+              <div
+  x-data="{ icons: [
+    { name: 'moon', status: 'y' },
+    { name: 'sunny', status: 'n' },
+    { name: 'desktop', status: 'auto' }
+  ] }"
+  class="flex items-center h-[32px] px-2 gap-2 border border-base-content/30 rounded-full"
+>
+  <template x-for="icon in icons">
+    <div
+      role="button"
+      tabindex="0"
+      :aria-label="'Select ' + icon.name + ' mode'"
+      class="group inline-flex justify-center items-center p-1 rounded-full cursor-pointer hover:bg-primary"
+      :class="$store.darkMode.icon() === icon.name && 'bg-primary'"
+      @click="$store.darkMode.toggle(icon.status)"
+    >
+      <ion-icon
+        :name="`${icon.name}-outline`"
+        class="group-hover:text-primary-content"
+        :class="$store.darkMode.icon() === icon.name && 'text-primary-content'"
+      >
+      </ion-icon>
+    </div>
+  </template>
+</div>
+
             </footer>
           </div>
         </div>
         <div class="back">
           <div class="container">
+            
             <div class="dream-grid">
   
 
   
 
   
-  
 </div>
 
+            
           </div>
         </div>
       </div>
@@ -203,32 +387,19 @@
     <script>
   window.lightTheme =  null 
   window.darkTheme =  null 
-
-  window.hasTwitterEmbed =  null 
-  if (window.hasTwitterEmbed) {
-    
-    window.twttr = (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {}
-      if (d.getElementById(id)) return t
-      js = d.createElement(s)
-      js.id = id
-      js.src = 'https://platform.twitter.com/widgets.js'
-      fjs.parentNode.insertBefore(js, fjs)
-
-      t._e = []
-      t.ready = function (f) {
-        t._e.push(f)
-      }
-
-      return t
-    })(document, 'script', 'twitter-wjs')
-  }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
-<script src="/js/grid.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+
+  
+  
+  <script src="/js/grid.js"></script>
+
+
+
+
 <script src="/js/main.js"></script>
 
     
@@ -238,6 +409,8 @@
 
 
 
+
+    
 
     
 

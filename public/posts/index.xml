@@ -2,38 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on microdiy.space</title>
-    <link>https://microdiy.space/posts/</link>
+    <link>//localhost:1313/posts/</link>
     <description>Recent content in Posts on microdiy.space</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>ua-ua</language>
-    <lastBuildDate>Fri, 26 Jul 2024 11:03:02 +0300</lastBuildDate>
-    <atom:link href="https://microdiy.space/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Sep 2024 21:12:34 +0300</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Write Posts</title>
+      <link>//localhost:1313/posts/how-write-posts/</link>
+      <pubDate>Sat, 21 Sep 2024 21:12:34 +0300</pubDate>
+      <guid>//localhost:1313/posts/how-write-posts/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Дебаг Serial порта(сніфінг)</title>
-      <link>https://microdiy.space/posts/debug-serial-port/</link>
+      <link>//localhost:1313/posts/debug-serial-port/</link>
       <pubDate>Fri, 26 Jul 2024 11:03:02 +0300</pubDate>
-      <guid>https://microdiy.space/posts/debug-serial-port/</guid>
+      <guid>//localhost:1313/posts/debug-serial-port/</guid>
       <description>Сніфінг/дебаг serial данних в ШИНДУС(може навіть в linux).</description>
     </item>
     <item>
       <title>Робимо з клона майже оригінал (stlinkv2)</title>
-      <link>https://microdiy.space/posts/stm32-stlink-clone/</link>
+      <link>//localhost:1313/posts/stm32-stlink-clone/</link>
       <pubDate>Wed, 26 Jun 2024 10:56:30 +0300</pubDate>
-      <guid>https://microdiy.space/posts/stm32-stlink-clone/</guid>
+      <guid>//localhost:1313/posts/stm32-stlink-clone/</guid>
       <description>Гарний інструмент коштує &lt;strong&gt;дорого&lt;/strong&gt;.</description>
     </item>
     <item>
       <title>Grafana Ploter</title>
-      <link>https://microdiy.space/posts/grafana-ploter/</link>
+      <link>//localhost:1313/posts/grafana-ploter/</link>
       <pubDate>Sun, 12 May 2024 00:20:25 +0300</pubDate>
-      <guid>https://microdiy.space/posts/grafana-ploter/</guid>
+      <guid>//localhost:1313/posts/grafana-ploter/</guid>
       <description>Красиві графіки в grafana.</description>
     </item>
     <item>
       <title>My First Post</title>
-      <link>https://microdiy.space/posts/my-first-post/</link>
+      <link>//localhost:1313/posts/my-first-post/</link>
       <pubDate>Fri, 10 May 2024 14:53:12 +0300</pubDate>
-      <guid>https://microdiy.space/posts/my-first-post/</guid>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
       <description>Introduction This is bold text, and this is emphasized text.&#xA;Visit the Hugo website!</description>
     </item>
   </channel>
